@@ -39,4 +39,14 @@ public class EstudianteController {
         return service.save(estudiante);
     }
     
+	@GetMapping("/libreta/{nro}")
+	public Optional<Estudiante> getByLibreta(@PathVariable int nro){
+		return service.findByLibreta(nro);
+	}
+	
+	@GetMapping("/genero/{genero}")
+	public Iterable<Estudiante> getByGenero(Character genero){
+		return service.findByGenero(genero);
+	}
+	
 }

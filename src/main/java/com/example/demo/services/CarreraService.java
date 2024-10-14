@@ -9,7 +9,6 @@ import com.example.demo.modelo.Carrera;
 import com.example.demo.repositories.CarreraRepository;
 
 
-
 @Service
 public class CarreraService {
 	
@@ -33,9 +32,13 @@ public class CarreraService {
 		return carrera;
 	}
 	
-	/*public Carrera update(Carrera carrera) {	
+	//ver!
+	public Carrera update(Carrera carrera, Integer id) {	
+		Carrera carreraAnt = findById(id).get();
+		carreraAnt.setNombre(carrera.getNombre());
+		return carreraRepository.save(carreraAnt);
 	}
-	*/
+	
 
 	public void delete(Integer id) {
 		carreraRepository.deleteById(id);

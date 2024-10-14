@@ -38,7 +38,13 @@ public class EstudianteService {
 	public void delete(Integer id) {
 		repository.deleteById(id);
 	}
-
 	
+	public Optional<Estudiante> findByLibreta(int nro){
+		return repository.findByLibreta(nro);
+	}
+
+	public Iterable<Estudiante> findByGenero(Character genero){
+		return repository.findByGenero(genero);
+	}
 
 }

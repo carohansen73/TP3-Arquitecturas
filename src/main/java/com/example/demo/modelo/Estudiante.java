@@ -26,12 +26,12 @@ public class Estudiante {
 	@Column
 	private LocalDate fechaNac;
 	@Column
-	private char genero;
+	private Character genero;
 	@Column
 	private int dni;
 	@Column
 	private String ciudadDeResidencia;
-	@Column (unique = true)
+	@Column (nullable = true, unique = true)
 	private int nroLibreta;
 	@OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL)
 	private List<EstudianteCarrera> carreras;
@@ -51,6 +51,18 @@ public class Estudiante {
 		this.ciudadDeResidencia = ciudadDeResidencia;
 		this.carreras = carreras;
 	}
+	
+	public Estudiante(String nombre, String apellido, LocalDate fechaNac, char genero, int dni, String ciudadDeResidencia,
+			 int libreta) {
+			super();
+			this.nombre = nombre;
+			this.apellido = apellido;
+			this.fechaNac = fechaNac;
+			this.genero = genero;
+			this.dni = dni;
+			this.ciudadDeResidencia = ciudadDeResidencia;
+			this.nroLibreta = libreta;
+		}
 	
 	public Estudiante(String nombre, String apellido, LocalDate fechaNac, char genero, int dni, String ciudadDeResidencia) {
 			super();
@@ -79,7 +91,7 @@ public class Estudiante {
 	public char getGenero() {
 		return genero;
 	}
-	public void setGenero(char genero) {
+	public void setGenero(Character genero) {
 		this.genero = genero;
 	}
 	public String getCiudadDeResidencia() {
