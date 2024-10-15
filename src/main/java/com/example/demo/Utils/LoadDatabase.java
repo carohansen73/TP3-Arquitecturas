@@ -10,6 +10,7 @@ import com.example.demo.modelo.Carrera;
 import com.example.demo.modelo.Estudiante;
 import com.example.demo.modelo.EstudianteCarrera;
 import com.example.demo.repositories.CarreraRepository;
+import com.example.demo.repositories.EstudianteCarreraRepository;
 import com.example.demo.repositories.EstudianteRepository;
 
 
@@ -20,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 class LoadDatabase {
 
 	    @Bean
-	    CommandLineRunner initDatabase(EstudianteRepository estudianteRepository, CarreraRepository carreraRepo) {
+	    CommandLineRunner initDatabase(EstudianteRepository estudianteRepository, CarreraRepository carreraRepo, EstudianteCarreraRepository estCarreraRepo) {
 	        return args -> {
 	        	
 	            var student1 = new Estudiante("Student1", "ApStudent1", LocalDate.now() , 'M' , 123458, "Tres Arroyos", 8);
@@ -46,6 +47,12 @@ class LoadDatabase {
 	            carreraRepo.save(carrera1);
 	            carreraRepo.save(carrera2);
 	            carreraRepo.save(carrera3);
+	            
+	            /*me trae cualq cosa!*/
+	            estCarreraRepo.save(relacion1);
+	            estCarreraRepo.save(relacion2);
+	            estCarreraRepo.save(relacion3);
+	            estCarreraRepo.save(relacion4);
 	            
 	        };
 	    }

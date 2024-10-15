@@ -9,8 +9,8 @@ public class EstudianteCarreraId implements Serializable{
 	private Integer carrera;
 	
 	public EstudianteCarreraId() {
-		
 	}
+	
 	public EstudianteCarreraId(Integer estudiante, Integer carrera) {
 		this.estudiante = estudiante;
 		this.carrera = carrera;
@@ -19,15 +19,19 @@ public class EstudianteCarreraId implements Serializable{
 	public Integer getEstudiante() {
 		return estudiante;
 	}
+	
 	public void setEstudiante(int estudiante) {
 		this.estudiante = estudiante;
 	}
+	
 	public Integer getCarrera() {
 		return carrera;
 	}
+	
 	public void setCarrera(int carrera) {
         this.carrera = carrera;
     }
+	
 	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
